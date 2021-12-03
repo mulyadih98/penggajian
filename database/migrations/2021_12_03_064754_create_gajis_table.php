@@ -20,6 +20,7 @@ class CreateGajisTable extends Migration
             $table->bigInteger("tunjangan_struktural");
             $table->bigInteger("tunjangan_fungsional");
             $table->bigInteger("tunjangan_transportasi");
+            $table->date("bulan");
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");

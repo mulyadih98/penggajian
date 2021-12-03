@@ -10,4 +10,8 @@ class Jabatan extends Model
     use HasFactory;
 
     protected $fillable = ["nama_jabatan", "gaji_pokok"];
+
+    public function user() {
+        return $this->hasOne(User::class,'foreign_key');
+    }
 }
