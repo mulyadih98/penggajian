@@ -32137,6 +32137,35 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.dataTable-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5px;
+}
+
+@media (max-width: 720px){
+  .dataTable-top{
+    width: 675px;
+  }
+}
+
+.dataTable-search {
+  display: flex;
+  float: none;
+  justify-content: end;
+  width: 50%;
+}
+
+.dataTable-dropdown{
+  width: 50%;
+}
+
+.dataTable-selector {
+  padding-right: 25px;
+  background-position-x: 1.7em;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -188576,4 +188605,3 @@ select {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-

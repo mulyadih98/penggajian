@@ -34,7 +34,7 @@
 					<!-- Col -->
 					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
 						<h3 class="pt-4 text-2xl text-center">Login</h3>
-						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" action="{{ route('login.post') }}" method="post">
+						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" action="{{ route('login.post') }}" method="POST">
 							<div class="my-2">
 								@if (session("err"))
 									<x-alert type="warning" message="{{ session('err') }}"></x-alert>
@@ -46,24 +46,31 @@
 									Email
 								</label>
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none @error('email') border-red-600 @enderror focus:outline-none focus:shadow-outline"
 									id="email"
 									name="email"
 									type="email"
+									value="{{ old('email') }}"
 									placeholder="Email"
 								/>
+								@error('email')
+									<span class="text-red-600 text-xs">{{ $message }}</span>
+								@enderror
 							</div>
 							<div class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="email">
 									Password
 								</label>
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline  @error('password') border-red-600 @enderror"
 									id="password"
 									name="password"
 									type="password"
 									placeholder="Password"
 								/>
+								@error('password')
+									<span class="text-red-600 text-xs">{{ $message }}</span>
+								@enderror
 							</div>
 							<div class="mb-6 text-center">
 								<button type="submit"

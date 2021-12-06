@@ -18,9 +18,10 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'nip',
         'email',
         'password',
+        'jabatan_id'
     ];
 
     /**
@@ -30,6 +31,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'email_verified_at',
         'remember_token',
     ];
 
@@ -44,5 +46,15 @@ class User extends Authenticatable
 
     public function jabatan(){
         return $this->belongsTo(Jabatan::class);
+    }
+
+    public function gajis(){
+        return $this->hasMany(Gaji::class);
+    }
+
+    public function detail(){
+        return $this->hasOne(UserDetail::class)->withDefault([
+            'nama_lengkap' => 'nama lengkap belum diset',
+        ]);
     }
 }

@@ -20,9 +20,10 @@
         .active-nav-link { background: #1947ee; }
         .nav-item:hover { background: #1947ee; }
         .account-link:hover { background: #3d68ff; }
+        [x-cloak] { display: none !important; }
     </style>
-    <!-- vanilla-datatables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">\
+    <!-- vanila datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js"></script>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
@@ -56,8 +57,12 @@
                     <img src="{{ asset('images/default.png') }}">
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16" x-cloak>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <button type="submit" class="block w-full px-4 py-2 account-link hover:text-white">Sign Out</button>
+                    </form>
                 </div>
             </div>
         </header>
@@ -89,6 +94,14 @@
     
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
+                @if (session("err"))
+                    <x-alert type="danger" message="{{ session('err') }}"></x-alert>
+                @endif
+
+                @if (session("scc"))
+                    <x-alert type="success" message="{{ session('scc') }}"></x-alert>
+                @endif
+
                 {{ $main }}
                 <!-- Content goes here! 😁 -->
             </main>

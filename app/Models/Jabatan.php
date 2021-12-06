@@ -9,9 +9,9 @@ class Jabatan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nama_jabatan", "gaji_pokok"];
+    protected $fillable = ["nama_jabatan", "gaji_pokok", "uang_makan","uang_transport"];
 
     public function user() {
-        return $this->hasOne(User::class,'foreign_key');
+        return $this->hasMany(User::class,'foreign_key');
     }
 }

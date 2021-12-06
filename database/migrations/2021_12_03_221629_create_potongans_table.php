@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJabatansTable extends Migration
+class CreatePotongansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateJabatansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatans', function (Blueprint $table) {
+        Schema::create('potongans', function (Blueprint $table) {
             $table->id();
-            $table->string("nama_jabatan");
-            $table->bigInteger("gaji_pokok");
-            $table->bigInteger("uang_makan");
-            $table->bigInteger("uang_transport");
+            $table->unsignedBigInteger("gaji_id");
+            $table->string("jenis_potongan");
+            $table->integer("jumlah");
             $table->timestamps();
+
+            $table->foreign("gaji_id")->references("id")->on("gajis")->onDelete("cascade");
         });
     }
 
@@ -30,6 +31,6 @@ class CreateJabatansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatans');
+        Schema::dropIfExists('potongans');
     }
 }

@@ -1,17 +1,46 @@
-@php
-    $menus = [
-        [
-            'name' => 'Dashboard',
-            'path' => 'admin',
-            'icon' => "fa-tachometer-alt"
-        ],
-        [
-            'name' => 'Blank Page',
-            'path' => 'admin/blank',
-            'icon' => "fa-sticky-note"
-        ],
-    ];
-@endphp
+@if (auth()->user()->jabatan->nama_jabatan === 'admin')
+    @php
+        $menus = [
+            [
+                'name' => 'Dashboard',
+                'path' => 'admin',
+                'icon' => "fa-tachometer-alt"
+            ],
+            [
+                'name' => 'Data User',
+                'path' => 'admin/users',
+                'icon' => "fa-users"
+            ],
+            [
+                'name' => 'Jabatan',
+                'path' => 'admin/jabatans',
+                'icon' => "fa-user-tag"
+            ],
+            [
+                'name' => 'Data Gaji',
+                'path' => 'admin/gaji',
+                'icon' => "fa-money-bill"
+            ],
+        ];
+    @endphp
+@endif
+
+@if (auth()->user()->jabatan->nama_jabatan === 'guru')
+    @php
+        $menus = [
+            [
+                'name' => 'Dashboard',
+                'path' => 'guru',
+                'icon' => "fa-tachometer-alt"
+            ],
+            [
+                'name' => 'Blank Page',
+                'path' => 'guru/blank',
+                'icon' => "fa-sticky-note"
+            ],
+        ];
+    @endphp
+@endif
 
 <x-dashboard title="{{ $title }}">
     <x-slot name="desktopNavbar">

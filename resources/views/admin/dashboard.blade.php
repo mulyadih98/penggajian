@@ -1,3 +1,3 @@
-<x-dashboard-admin title="Admin">
+<x-base-layouts title="Admin">
     <h2>Halaman Dashboard admin</h2>
-</x-dashboard-admin>
+</x-base-layouts>

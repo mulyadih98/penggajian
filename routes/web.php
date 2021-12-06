@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,13 +30,21 @@ Route::middleware('auth')->group(function() {
         Route::get('/blank', function () {
             return view('admin.dashboard');
         });
+
+        Route::resource('/users', UserController::class);
+        Route::resource('/jabatans', JabatanController::class);
     });
     
-    Route::middleware('check_jabatan:guru')->prefix('guru')->group(function () {
+    Route::middleware('check_jabatan:user')->prefix('user')->group(function () {
         Route::get('/', function () {
-            return "welcome guru";
+            return "welcome user";
         });
     });
+
+    Route::put('user/{id}/reset-password/', [UserController::class, 'resetPassword'])->name('reset-password');
+
+
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 
