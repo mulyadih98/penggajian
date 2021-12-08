@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\SlipGajiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +48,7 @@ Route::middleware('auth')->group(function() {
 
     Route::put('user/{id}/reset-password/', [UserController::class, 'resetPassword'])->name('reset-password');
 
-    Route::get('/slip/{userid}/{periode}', [GajiController::class, 'getSlip']);
+    Route::get('/slip/{gajiId}', SlipGajiController::class);
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

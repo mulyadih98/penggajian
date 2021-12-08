@@ -19,7 +19,6 @@
             <p><span class="w-32 inline-block">Bonus </span>: {{ toRupiah($user->bonus) }}</p>
             <p><span class="w-32 inline-block">Lembur </span>: {{ toRupiah($user->lembur) }}</p>
             <p><span class="w-32 inline-block">Total Gaji </span>: {{ toRupiah($user->total_gaji) }}</p>
-            <p><span class="w-32 inline-block ">Gaji Yang Diterima </span>: {{ toRupiah($user->diterima) }}</p>
         </div>
         <div class="w-3/6 space-y-2">
             <h3 class="text-xl">* Potongan</h3>
@@ -34,6 +33,7 @@
             @endif
             <h3 class="text-xl mt-4">* Diterima</h3>
             <p><span class="inline-block ">Gaji Yang Diterima </span>: {{ toRupiah($user->diterima) }}</p>
+            
         </div>
     </div>
 </x-base-layouts>
