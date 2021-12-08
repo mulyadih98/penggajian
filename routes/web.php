@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\GajiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,8 +32,11 @@ Route::middleware('auth')->group(function() {
             return view('admin.dashboard');
         });
 
+        Route::get('/gajis/bayar/{userid}/{periode}', [GajiController::class, 'bayar'])->name('bayar.gaji');
+        Route::get('/gajis/periode/{periode}', [GajiController::class, 'getPerpEriode'])->name('periode.gaji');
         Route::resource('/users', UserController::class);
         Route::resource('/jabatans', JabatanController::class);
+        Route::resource('/gajis', GajiController::class);
     });
     
     Route::middleware('check_jabatan:user')->prefix('user')->group(function () {
@@ -43,6 +47,7 @@ Route::middleware('auth')->group(function() {
 
     Route::put('user/{id}/reset-password/', [UserController::class, 'resetPassword'])->name('reset-password');
 
+    Route::get('/slip/{userid}/{periode}', [GajiController::class, 'getSlip']);
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

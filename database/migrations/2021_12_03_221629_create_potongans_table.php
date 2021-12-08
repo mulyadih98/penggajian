@@ -21,6 +21,7 @@ class CreatePotongansTable extends Migration
             $table->timestamps();
 
             $table->foreign("gaji_id")->references("id")->on("gajis")->onDelete("cascade");
+            $table->foreign("gaji_id")->references("id")->on("gajis")->onDelete("cascade");
         });
     }
 

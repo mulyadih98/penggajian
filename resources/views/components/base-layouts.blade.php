@@ -18,7 +18,7 @@
             ],
             [
                 'name' => 'Data Gaji',
-                'path' => 'admin/gaji',
+                'path' => 'admin/gajis',
                 'icon' => "fa-money-bill"
             ],
         ];

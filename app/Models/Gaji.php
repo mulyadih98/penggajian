@@ -9,9 +9,23 @@ class Gaji extends Model
 {
     use HasFactory;
 
-    protected $guarded = ["*"];
+    protected $fillable = [
+        "user_id",
+        "gaji_pokok",
+        "uang_transport",
+        "uang_makan",
+        "bonus",
+        "lembur",
+        "total_gaji",
+        "diterima",
+        "periode"
+    ];
 
     function potongans(){
         return $this->hasMany(Potongan::class);
+    }
+
+    function user() {
+        return $this->belongsTo(User::class);
     }
 }

@@ -10,7 +10,7 @@
             <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
               <th class="px-4 bg-gray-800 text-white py-3 text-center">No</th>
               <th class="px-4 bg-gray-800 text-white py-3">Jabatan</th>
-              <th class="px-4 bg-gray-800 text-white py-3">Gaji POkok</th>
+              <th class="px-4 bg-gray-800 text-white py-3">Gaji Pokok</th>
               <th class="px-4 bg-gray-800 text-white py-3">Uang Makan</th>
               <th class="px-4 bg-gray-800 text-white py-3">Uang Transport</th>
               <th class="px-4 bg-gray-800 text-white py-3 text-center ">Aksi</th>
@@ -42,3 +42,9 @@
         </table>
     </div>
 </x-base-layouts>
+
+<script>
+  new DataTable("#jabatan_table", {
+    perPageSelect: [10, 20, 30, 40, 50, 100],
+  });
+</script>

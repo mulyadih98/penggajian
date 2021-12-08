@@ -7,6 +7,8 @@
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js"></script>
     <!-- Tailwind -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('/js/app.js') }}" defer></script>
@@ -23,8 +25,6 @@
         [x-cloak] { display: none !important; }
     </style>
     <!-- vanila datatable -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js"></script>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Dropdown Nav -->
-            <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
+            <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4" x-cloak>
                 {{ $mobileMenu }}
             </nav>
             <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">

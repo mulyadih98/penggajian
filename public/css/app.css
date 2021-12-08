@@ -32162,8 +32162,9 @@ select {
 }
 
 .dataTable-selector {
-  padding-right: 25px;
-  background-position-x: 1.7em;
+  padding-right: 24px;
+  width: 300;
+  background-position-x: 2em;
 }
 
 @media (min-width: 640px) {
