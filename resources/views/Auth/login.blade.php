@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+		<link rel="icon" href="{{ url('images/logo/favicon.ico') }}">
+		<meta name="author" content="Mulyadih1998">
+    <meta name="description" content="Aplikasi penggajian guru di SMP IT Bina Adzkia">
+    <meta name="robots" content="index, follow" />
         <title>Login Penggajian</title>
 
         <!-- Fonts -->
