@@ -21,11 +21,11 @@ class CheckLogin
             return $next($request);
         }
 
-        if(auth()->user()->jabatan->nama_jabatan == 'admin'){
+        if(auth()->user()->role == 'admin'){
             return redirect()->to('admin');
         }
 
-        if(auth()->user()->jabatan->role){
+        if(auth()->user()->role){
             return redirect()->to('user');
         }
 
