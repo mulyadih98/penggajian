@@ -1,4 +1,4 @@
-@if (auth()->user()->jabatan->nama_jabatan === 'admin')
+@if (auth()->user()->role === 'admin')
     @php
         $menus = [
             [
@@ -25,7 +25,7 @@
     @endphp
 @endif
 
-@if (auth()->user()->jabatan->nama_jabatan === 'guru')
+@if (auth()->user()->role === 'user')
     @php
         $menus = [
             [
