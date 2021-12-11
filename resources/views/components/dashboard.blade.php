@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
-    <meta name="author" content="David Grzyb">
+    <link rel="icon" href="{{ url('images/logo/favicon.ico') }}">
+    <meta name="author" content="Mulyadih1998">
     <meta name="description" content="Aplikasi penggajian guru di SMP IT Bina Adzkia">
     <meta name="robots" content="index, follow" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
