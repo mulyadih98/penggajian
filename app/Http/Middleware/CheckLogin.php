@@ -25,8 +25,8 @@ class CheckLogin
             return redirect()->to('admin');
         }
 
-        if(auth()->user()->jabatan->nama_jabatan == 'guru'){
-            return redirect()->to('guru');
+        if(auth()->user()->jabatan->role){
+            return redirect()->to('user');
         }
 
     }

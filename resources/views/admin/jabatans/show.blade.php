@@ -14,4 +14,5 @@
                 <i class="fa fa-edit"></i> Ubah Data
             </a>
         </div>
+    </div>
 </x-base-layouts>

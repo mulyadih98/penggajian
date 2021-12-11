@@ -96,11 +96,13 @@
 		">
             <h4 class="heading">* Penerimaan</h4>
             <p><span class="w-32 inline-block mt-2">NIP </span>: {{ $data['user']['nip'] }}</p>
+            <p><span class="w-32 inline-block mt-2">Gaji Pokok </span>: {{ toRupiah($data->gaji_pokok) }}</p>
             <p><span class="w-32 inline-block mt-2">Uang Transport </span>: {{ toRupiah($data->uang_transport) }}</p>
             <p><span class="w-32 inline-block mt-2">Uang Makan</span>: {{ toRupiah($data->uang_makan) }}</p>
             <p><span class="w-32 inline-block mt-2">Bonus </span>: {{ toRupiah($data->bonus) }}</p>
             <p><span class="w-32 inline-block mt-2">Lembur </span>: {{ toRupiah($data->lembur) }}</p>
             <p><span class="w-32 inline-block mt-2">Total Gaji </span>: {{ toRupiah($data->total_gaji) }}</p>
+            
         </div>
         <div style="
 			width:50%;

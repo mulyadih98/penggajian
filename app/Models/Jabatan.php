@@ -11,7 +11,7 @@ class Jabatan extends Model
 
     protected $fillable = ["nama_jabatan", "gaji_pokok", "uang_makan","uang_transport"];
 
-    public function user() {
-        return $this->hasMany(User::class,'foreign_key');
+    public function users() {
+        return $this->hasMany(User::class);
     }
 }

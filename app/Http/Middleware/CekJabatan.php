@@ -16,14 +16,14 @@ class CekJabatan
      */
     public function handle(Request $request, Closure $next,$jabatan)
     {
-        $jabatanUser = auth()->user()->jabatan->nama_jabatan;
+        $jabatanUser = auth()->user()->role;
         if($jabatan != $jabatanUser){
             if($jabatanUser === 'admin'){
                 return redirect()->to('admin');
             }
 
-            if($jabatanUser === 'guru'){
-                return redirect()->to('guru');
+            if($jabatanUser === 'user'){
+                return redirect()->to('user');
             }
         }else{
 

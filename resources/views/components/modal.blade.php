@@ -1,9 +1,9 @@
-<div x-data="{ isOpen: false }">
+<div x-data="{ isOpen: false  }">
     <div
         x-cloak
         x-show="isOpen"
         x-on:toggle.window="isOpen = !isOpen" 
-        class="absolute z-10 inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
+        class="absolute z-50 inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
         <div class="max-w-sm p-6 bg-white">
             <div class="flex items-center justify-between">
                 <h3 class="text-2xl">{{ $title?? 'Modal title' }}</h3>

@@ -36,4 +36,7 @@
             
         </div>
     </div>
+    <a href="{{ route('slip.gaji',$user->id) }}" class="bg-blue-600 text-white py-2 px-4 mt-2 block w-36 text-center rounded-md">
+        <i class="fa fa-print"></i> Cetak Slip
+    </a>
 </x-base-layouts>

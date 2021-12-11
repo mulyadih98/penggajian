@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SlipGajiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +31,7 @@ Route::post('login', [AuthController::class, 'login'])->name('login.post');
 
 Route::middleware('auth')->group(function() {
     Route::middleware('check_jabatan:admin')->prefix('admin')->group(function () {
-        Route::get('/', function () {
-            return view('admin.dashboard');
-        });
+        Route::get('/', [AdminController::class, 'index']);
         Route::get('/blank', function () {
             return view('admin.dashboard');
         });
@@ -41,14 +44,20 @@ Route::middleware('auth')->group(function() {
     });
     
     Route::middleware('check_jabatan:user')->prefix('user')->group(function () {
-        Route::get('/', function () {
-            return "welcome user";
-        });
+        Route::get('/', [DashboardUserController::class, 'index']);
+        Route::get('gajis', [DashboardUserController::class, 'gaji'])->name('data.gaji.user');
     });
 
     Route::put('user/{id}/reset-password/', [UserController::class, 'resetPassword'])->name('reset-password');
 
-    Route::get('/slip/{gajiId}', SlipGajiController::class);
+    Route::get('/slip/{gajiId}', SlipGajiController::class)->name('slip.gaji');
+    Route::get('/data-diri', [AccountController::class, 'profile'])->name('data.diri');
+    Route::put('/data-diri', [AccountController::class, 'updateProfile'])->name('update.data.diri');
+    Route::prefix('akun')->group(function(){
+        Route::get('/', [AccountController::class, 'account'])->name('akun');
+        Route::put('ganti-password', [AccountController::class, 'updatePassword'])->name('ganti.password');
+        Route::put('ganti-email', [AccountController::class, 'updateEmail'])->name('ganti.email');
+    });
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

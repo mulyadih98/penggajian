@@ -21,10 +21,10 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
-        if($user->jabatan->nama_jabatan == 'admin'){
+        if($user->role == 'admin'){
             echo 'admin';
             return redirect()->to('admin');
-        }else if($user->jabatan->nama_jabatan == 'user'){
+        }else if($user->role == 'user'){
             echo 'user';
             return redirect()->to('user');
         }
