@@ -29,7 +29,7 @@
                 @endphp
                 <option value="">-- Pilih Agama --</option>
                 @foreach ($agama as $item)
-                    <option {{ $item === $user->detail->agama ? 'selected' : '' }}>{{ $item }}</option>
+                    <option {{ $item == $user->detail->agama ? 'selected' : '' }}>{{ $item }}</option>
                 @endforeach
             </x-select>
             <x-button class="bg-blue-600 text-white my-2" type="submit">

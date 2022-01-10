@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             "tempat_lahir" => "location test",
             "alamat" => "location test",
             "no_telepon" => "081123123123",
-            "agama" => "test"
+            "agama" => "Islam"
         ]);
     }
 }

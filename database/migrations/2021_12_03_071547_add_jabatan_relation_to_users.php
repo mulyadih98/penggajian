@@ -15,7 +15,7 @@ class AddJabatanRelationToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign("jabatan_id")->references("id")->on("jabatans");
+            $table->foreign("jabatan_id")->references("id")->on("jabatans")->onDelete('cascade');
         });
     }
 
