@@ -60,15 +60,20 @@
             @endforeach
           </tbody>
         </table>
-    </div>
+      </div>
+      <a id="laporan" href="{{ url('admin/cetak-laporan/') }}/{{ date('Y-m') }}" class="bg-green-600 mt-4 block w-56 text-center text-white py-2 px-4 rounded-md">
+        <i class="fa fa-money-bill-wave"></i> Cetak Laporan
+      </a>
 </x-base-layouts>
 
 <script>
     const baseUrl = `{{ url('admin/gajis/') }}`;
     const gaji = document.querySelector('#gaji');
+    const laporan = document.querySelector('#laporan');
     const pilihAction = async (value) => {
         const response = await fetch(`{{ url('admin/gajis/periode') }}/${value}`);
         const responseJson = await response.json();
+        laporan.href = 'cetak-laporan/'+ value;
         console.log(responseJson)
         gaji.innerHTML = '';
         responseJson.forEach((user, index) => {
