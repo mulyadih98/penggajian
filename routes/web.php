@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CetakLaporan;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\JabatanController;
@@ -30,12 +31,13 @@ Route::get('/', function () {
 Route::post('login', [AuthController::class, 'login'])->name('login.post');
 
 Route::middleware('auth')->group(function() {
+    // Route for admin
     Route::middleware('check_jabatan:admin')->prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
         Route::get('/blank', function () {
             return view('admin.dashboard');
         });
-
+        Route::get('/cetak-laporan/{periode}', CetakLaporan::class)->name('cetak.laporan');
         Route::get('/gajis/bayar/{userid}/{periode}', [GajiController::class, 'bayar'])->name('bayar.gaji');
         Route::get('/gajis/periode/{periode}', [GajiController::class, 'getPerpEriode'])->name('periode.gaji');
         Route::resource('/users', UserController::class);
@@ -43,6 +45,7 @@ Route::middleware('auth')->group(function() {
         Route::resource('/gajis', GajiController::class);
     });
     
+    // Route for user
     Route::middleware('check_jabatan:user')->prefix('user')->group(function () {
         Route::get('/', [DashboardUserController::class, 'index']);
         Route::get('gajis', [DashboardUserController::class, 'gaji'])->name('data.gaji.user');
