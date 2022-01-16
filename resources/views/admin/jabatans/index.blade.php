@@ -28,6 +28,7 @@
                   <a href="{{ route('jabatans.show', $jabatan->id) }}" class="bg-blue-600 w-32 text-center text-white py-2 px-4 rounded-md">
                     <i class="fa fa-eye"></i> detail
                   </a>
+                  @if ($jabatan->nama_jabatan !== 'admin')
                   <form action="{{ route('jabatans.destroy',$jabatan->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -35,6 +36,7 @@
                       <i class="fa fa-trash"></i> Delete
                     </button>
                   </form>
+                  @endif
                 </td>
               </tr>
             @endforeach

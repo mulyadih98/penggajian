@@ -108,7 +108,7 @@
             </main>
     
             <footer class="w-full bg-white text-right p-4">
-                Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
+                <a target="_blank" href="#" class="underline">SMPIT BINA ADZKIA</a>.
             </footer>
         </div>
         
