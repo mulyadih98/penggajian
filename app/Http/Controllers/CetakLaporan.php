@@ -16,7 +16,7 @@ class CetakLaporan extends Controller
     public function __invoke(Request $request, $periode, GajiService $gajiService)
     {
         $data = [
-            'gaji' => $gajiService->getAll('2021-12'),
+            'gaji' => $gajiService->getAll($periode),
             'bulan' => explode('-',$periode)[1],
             'tahun' => explode('-',$periode)[0]
         ];
